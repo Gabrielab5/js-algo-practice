@@ -13,8 +13,18 @@ The array may contain duplicates.
 Multiple solutions can exist, any solution is sufficient to return true.
 */
 
-function canPartition( /*args*/ ) {
-  //your code
+function canPartition( arr ) {
+  const sortedArr = arr.sort((a, b) => Math.abs(a) - Math.abs(b));
+  const rightEdge = sortedArr[sortedArr.length-1]
+  let product = 1;
+  let zeroCount=0;
+
+  for(let i=0; i<sortedArr.length-1; i++){
+      product *= sortedArr[i];
+      if (sortedArr[i] ==0)
+        zeroCount++;
+  }
+  return (product == rightEdge || zeroCount >=2)
 }
 
 exports.solution = canPartition;
