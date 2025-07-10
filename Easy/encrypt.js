@@ -30,8 +30,19 @@ Notes
 All inputs are strings, no uppercases and all output must be strings.
 */
 
-function encrypt( /*args*/ ) {
-  //your code
+function encrypt(input) {
+  const replacements = {
+    a: '0',
+    e: '1',
+    i: '2',
+    o: '2',
+    u: '3'
+  };
+
+  return input.toLowerCase().split('').map(char => replacements[char] || char).reverse().join("")+"aca";
 }
+
+
+console.log(encrypt("burak"))
 
 exports.solution = encrypt;

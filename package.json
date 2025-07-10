@@ -9,6 +9,7 @@
     "test-calculator": "jest --testPathPattern=Easy/calculator.test.js",
     "test-canPartition": "jest --testPathPattern=Easy/canPartition.test.js",
     "test-convert": "jest --testPathPattern=Medium/convert.test.js",
+    "test-convertEasy": "jest --testPathPattern=Easy/convertEasy.test.js",
     "test-dashed": "jest --testPathPattern=Easy/dashed.test.js",
     "test-encrypt": "jest --testPathPattern=Easy/encrypt.test.js",
     "test-factorChain": "jest --testPathPattern=Easy/factorChain.test.js",
