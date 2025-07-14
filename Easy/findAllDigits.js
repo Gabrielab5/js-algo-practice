@@ -15,13 +15,20 @@ Notes
 The digits can be discovered in any order.
 */
 
+  //digitsSet.add(Math.floor(number / 1000) % 10);
+  //digitsSet.add(Math.floor(number / 100) % 10);
+  //digitsSet.add(Math.floor(number / 10) % 10);
+  //digitsSet.add(number % 10);
+
 function findAllDigits( arr) {
   const digitsSet = new Set()
+
   for (let number of arr) {
-    digitsSet.add(Math.floor(number / 1000) % 10);
-    digitsSet.add(Math.floor(number / 100) % 10);
-    digitsSet.add(Math.floor(number / 10) % 10);
-    digitsSet.add(number % 10);
+    for (let digit of String(number)) {
+      if (!isNaN(digit)) {
+        digitsSet.add(Number(digit));
+      }
+    }
 
     if (digitsSet.size === 10) {
       return number;
