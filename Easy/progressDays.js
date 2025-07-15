@@ -16,8 +16,12 @@ Notes
 Running the same number of miles as last week does not count as a progress day.
 */
 
-function progressDays( /*args*/ ) {
-  //your code
+function progressDays(days ) {
+  
+  let progressCount = 0
+  for (let i=0; i< days.length -1 ; i++)  
+    days[i]<days[i+1] ? progressCount++ : progressCount
+  return progressCount
 }
 
 exports.solution = progressDays;

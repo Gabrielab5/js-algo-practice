@@ -14,8 +14,15 @@ Remember to return a string.
 The first phrase is always "Loves me".
 */
 
-function lovesMe( /*args*/ ) {
-  //your code
+function lovesMe( petals) {
+  const even = "Loves me, "
+  const odd = "Loves me not, "
+  let string = ""
+  for(let i=0;i<petals-1;i++){
+    i%2==0 ? string+=even : string+=odd
+  }
+  petals%2==0 ? string+="LOVES ME NOT" : string+="LOVES ME"
+  return string
 }
 
 exports.solution = lovesMe;

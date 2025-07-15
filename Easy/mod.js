@@ -11,8 +11,8 @@ Notes
 All test cases contain valid numbers.
 */
 
-function mod( /*args*/ ) {
-  //your code
+function mod(n, m) {
+  return ((n % m) + m) % m
 }
 
 exports.solution = mod;

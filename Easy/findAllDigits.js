@@ -13,27 +13,29 @@ findAllDigits([4883, 3876, 7769, 9846, 9546, 9634, 9696, 2832, 6822, 6868]) ➞ 
 // 0 and 1 are missing
 Notes
 The digits can be discovered in any order.
+
+
+for (let number of arr) {
+    digitsSet.add(Math.floor(number / 1000) % 10);
+    digitsSet.add(Math.floor(number / 100) % 10);
+    digitsSet.add(Math.floor(number / 10) % 10);
+    digitsSet.add(number % 10);
 */
 
-  //digitsSet.add(Math.floor(number / 1000) % 10);
-  //digitsSet.add(Math.floor(number / 100) % 10);
-  //digitsSet.add(Math.floor(number / 10) % 10);
-  //digitsSet.add(number % 10);
 
-function findAllDigits( arr) {
+function findAllDigits(arr) {
   const digitsSet = new Set()
 
   for (let number of arr) {
     for (let digit of String(number)) {
-      if (!isNaN(digit)) {
+      if (!isNaN(digit)) 
         digitsSet.add(Number(digit));
-      }
     }
 
-    if (digitsSet.size === 10) {
-      return number;
-    }
+    if (digitsSet.size === 10) 
+      return number;   
   }
+
   return "Missing digits!"
 }
 

@@ -40,8 +40,15 @@ Notes
 There might be a floating point precision problem in here...
 */
 
-function getTotalPrice( /*args*/ ) {
-  //your code
+function getTotalPrice(groceries) {
+  const total = groceries.reduce((sum, product) => {
+    const price = Number(product.price)
+    const quantity = Number(product.quantity)
+    if (isNaN(price) || isNaN(quantity))  throw new Error(`Invalid item:`)
+    return sum + price * quantity;
+  }, 0)
+
+  return Math.round(total * 100) / 100
 }
 
 exports.solution = getTotalPrice;
