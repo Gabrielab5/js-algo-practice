@@ -43,8 +43,29 @@ The today parameter will always be greater than or equal to the last date in the
 An empty array should return 0.
 */
 
-function currentStreak( /*args*/ ) {
-  //your code
+function currentStreak( currentDay, Dates ) {
+  if (Dates.length ==0) return 0;
+
+  const toDate = (dateStr) => new Date(dateStr);
+
+  const areConsecutive = (date1, date2) => {
+    const oneDay = 1000 * 60 * 60 * 24; 
+    return toDate(date2) - toDate(date1) === oneDay;
+  };
+
+  let streak =0;
+  let currentDate = toDate(currentDay);
+
+  for( let i= Dates.length -1; i>=0; i--) {
+    const date = toDate(Dates[i].date);
+    if ( currentDate === date || areConsecutive(date, currentDate )){
+      streak++;
+      currentDate = date;
+    }
+    else return streak;
+  }
+
+  return streak;
 }
 
 exports.solution = currentStreak;

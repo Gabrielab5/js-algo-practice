@@ -15,8 +15,9 @@ getBudgets([
 ]) ➞ 62600
 */
 
-function getBudgets( /*args*/ ) {
-  //your code
+function getBudgets(ObjArray ) {
+  const budgetArr = ObjArray.map(obj => obj.budget);
+  return budgetArr.reduce((acc, val) => acc + val, 0);
 }
 
 exports.solution = getBudgets;

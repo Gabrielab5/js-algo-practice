@@ -16,8 +16,13 @@ Notes
 The given string will never have more than one missing letter.
 */
 
-function missingLetter( /*args*/ ) {
-  //your code
+function missingLetter( letters) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const lowerLetters = letters.toLowerCase();
+  const startIndex = alphabet.indexOf(lowerLetters[0]);
+  const endIndex = alphabet.indexOf(lowerLetters[lowerLetters.length -1]);
+  const missing = alphabet.slice(startIndex, endIndex+1).split('').find(letter => !lowerLetters.includes(letter));
+  return missing ? missing : "No Missing Letter";
 }
 
 exports.solution = missingLetter;

@@ -12,8 +12,21 @@ Round to the nearest integer.
 If the input is incorrect, return "Error".
 */
 
-function convertTemp( /*args*/ ) {
-  //your code
+function convertTemp( temp ) {
+    const celsiusMatch = temp.match(/^(-?\d+)(°C)$/);
+  const fahrenheitMatch = temp.match(/^(-?\d+)(°F)$/);
+
+  if (celsiusMatch) {
+    const celsius = parseInt(celsiusMatch[1], 10);
+    const fahrenheit = Math.round((celsius * 9/5) + 32);
+    return `${fahrenheit}°F`;
+  } else if (fahrenheitMatch) {
+    const fahrenheit = parseInt(fahrenheitMatch[1], 10);
+    const celsius = Math.round((fahrenheit - 32) * 5/9);
+    return `${celsius}°C`;
+  } else {
+    return "Error";
+  }
 }
 
 exports.solution = convert;

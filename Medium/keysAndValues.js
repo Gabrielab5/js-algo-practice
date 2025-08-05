@@ -14,8 +14,10 @@ Notes
 Remember to sort the keys.
 */
 
-function keysAndValues( /*args*/ ) {
-  //your code
+function keysAndValues(obj ) {
+  const keys = Object.keys(obj).sort();
+  const values = keys.map(key => obj[key]);
+  return [keys, values];
 }
 
 exports.solution = keysAndValues;
