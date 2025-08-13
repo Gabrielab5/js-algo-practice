@@ -14,8 +14,17 @@ The strings can contain white spaces or any type of characters.
 Bonus: Try solving this without regex.
 */
 
-function numInStr( /*args*/ ) {
-  //your code
+function numInStr( arr ) {
+  return arr.filter(str=> containesNum(str));
+}
+
+function containesNum(str){
+  for (let i = 0; i < str.length; i++) {
+    if ('0123456789'.includes(str[i])) {
+      return true;
+    }
+  }
+  return false;
 }
 
 exports.solution = numInStr;

@@ -11,8 +11,10 @@ oddishOrEvenish(373) ➞ "Oddish"
 oddishOrEvenish(4433) ➞ "Evenish"
 */
 
-function oddishOrEvenish( /*args*/ ) {
-  //your code
+function oddishOrEvenish(number ) {
+  const digitsSum = number.toString().split('').reduce((sum, digit) => sum + Number(digit), 0);
+  if (digitsSum%2) return "Evenish"
+  else return "Oddish"
 }
 
 exports.solution = oddishOrEvenish;

@@ -11,8 +11,22 @@ Notes
 If the input is an empty array, return [0, 0, 0].
 */
 
-function timeSum( /*args*/ ) {
-  //your code
+function timeSum(timeStringsArr) {
+  if (!timeStringsArr) return [0,0,0]
+    const [totalHours, totalMinutes, totalSeconds] = timeStringsArr.reduce((acc, timeStr) => {
+    const [h, m, s] = timeStr.split(':').map(Number);
+    return [acc[0] + h, acc[1] + m, acc[2] + s];
+  }, [0, 0, 0]);
+
+  const finalSeconds = totalSeconds % 60;
+  const minutesFromSeconds = Math.floor(totalSeconds / 60);
+
+  const finalMinutes = (totalMinutes + minutesFromSeconds) % 60;
+  const hoursFromMinutes = Math.floor((totalMinutes + minutesFromSeconds) / 60);
+  
+  const finalHours = totalHours + hoursFromMinutes;
+
+  return [finalHours, finalMinutes, finalSeconds];
 }
 
 exports.solution = timeSum;

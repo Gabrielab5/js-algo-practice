@@ -13,8 +13,18 @@ Notes
 There is exactly one space between each word and no punctuation is used.
 */
 
-function reverseOdd( /*args*/ ) {
-  //your code
+function reverseOdd(sentence) {
+  const words = sentence.split(' ')
+  let newSentence =[]
+  words.forEach(word => {
+    if (word.length%2) newSentence.push(reverseString(word))
+      else newSentence.push(word)
+  });
+  return newSentence.join(' ')
+}
+
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 exports.solution = reverseOdd;
