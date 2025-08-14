@@ -20,8 +20,42 @@ Notes
 During leap years the end date of Winter in the northern hemisphere is the 29th day of February (last day of Summer in the southern hemisphere). In this challenge, years are not used, so the last day of February will always be the 28th.
 */
 
-function hemisphereSeason(/*args*/) {
-  //your code
+function hemisphereSeason(hemisphere, date) {
+  const [monthStr, dayStr] = date.split(',')
+  const day = parseInt(dayStr,10)
+  const months = {
+    "January": 1,
+    "February": 2,
+    "March": 3,
+    "April": 4,
+    "May": 5,
+    "June": 6,
+    "July": 7,
+    "August": 8,
+    "September": 9,
+    "October": 10,
+    "November": 11,
+    "December": 12 
+  }
+  const month = months[monthStr]
+  let season =""
+  // March 1 - May 31
+  if (month >= 3 && month <= 5) {
+    season = (hemisphere === "N") ? "Spring" : "Autumn";
+  }
+  // June 1 - August 31
+  else if (month >= 6 && month <= 8) {
+    season = (hemisphere === "N") ? "Summer" : "Winter";
+  }
+  // September 1 - November 30
+  else if (month >= 9 && month <= 11) {
+    season = (hemisphere === "N") ? "Autumn" : "Spring";
+  }
+  // December 1 - February 28
+  else if (month === 12 || month <= 2) {
+    season = (hemisphere === "N") ? "Winter" : "Summer";
+  }
+  return season;
 }
 
 exports.solution = hemisphereSeason;

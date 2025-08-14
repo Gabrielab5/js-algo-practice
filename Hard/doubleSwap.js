@@ -13,8 +13,9 @@ Notes
 Both characters will show up at least once in the string.
 */
 
-function doubleSwap( /*args*/ ) {
-  //your code
+function doubleSwap(string, prevCh, newCh) {
+  const charArr = string.split('').map((char)=> char===prevCh ? newCh : char==newCh ? prevCh : char)
+  return charArr.join('')
 }
 
 exports.solution = doubleSwap;

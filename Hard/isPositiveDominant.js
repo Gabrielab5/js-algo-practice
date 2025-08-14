@@ -17,8 +17,17 @@ Notes
 0 neither counts as a positive nor a negative value.
 */
 
-function isPositiveDominant(/*args*/) {
-  //your code
+function isPositiveDominant(arr) {
+  const uniqueNums = new Set(arr)
+  let positiveCount = 0;
+  let negativeCount = 0;
+
+  for (const num of uniqueNums) {
+    if (num > 0) positiveCount++;
+    else if (num < 0) negativeCount++;   
+  }
+  
+  return positiveCount > negativeCount;
 }
 
 exports.solution = isPositiveDominant;
