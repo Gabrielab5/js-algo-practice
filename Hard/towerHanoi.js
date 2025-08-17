@@ -16,8 +16,8 @@ The amount of discs is always a positive integer.
 1 disc can be changed per move.
 */
 
-function towerHanoi( /*args*/ ) {
-  //your code
+function towerHanoi(discs) {
+  return 2 ** discs - 1;
 }
 
 exports.solution = towerHanoi;
