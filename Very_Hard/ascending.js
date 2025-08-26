@@ -34,5 +34,3 @@ function ascending(number) {
 }
 
 exports.solution = ascending;
-
-exports.solution = ascending;
